@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
 import { DataContext } from '../../context/dataprovider';
 import "../../index.css";
@@ -17,11 +18,11 @@ export const ProductItem = ({
   return (
     <div>
       <div className="producto" key={id}>
-        <a href="/">
+        <Link to={`/products/${id}`} className="link">
           <div className="producto__img">
             <img src={image} alt={title} />
           </div>
-        </a>
+        </Link>
         <div className="producto__footer">
           <h3>{title}</h3>
           <p>{category}</p>
@@ -30,12 +31,25 @@ export const ProductItem = ({
         <div className="buttom">
           <button className="button" onClick={() => addCart(id)}> Agregar al carrito</button>
           <div>
-            <a href="#" className="btn">
+            <Link to={`/products/${id}`} className="btn">
               Vista
-            </a>
+            </Link>
           </div>
         </div>
       </div>
     </div>
   );
 }
+
+
+ProductItem.propTypes = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  image: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+}
+
+
+
+
