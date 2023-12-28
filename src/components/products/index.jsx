@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { DataContext } from '../../context/dataprovider';
 import { ProductItem } from './productItem';
 import '../../index.css'
